@@ -1,11 +1,11 @@
 ---
-title: qiita-cli を VSCode に統合する拡張機能が欲しい
+title: 【VSCode Qiita Editor】qiita-cli を VSCode に統合する拡張機能が欲しい
 tags:
   - Markdown
   - VSCode
   - qiita-cli
 private: false
-updated_at: '2025-08-15T13:49:27+09:00'
+updated_at: '2025-08-16T23:49:02+09:00'
 id: dffcff0287e8efc11a3d
 organization_url_name: null
 slide: false
