@@ -1,0 +1,96 @@
+---
+title: flexmark-java で WikiLink を有効にし、リンク URL の解決をカスタマイズする
+tags:
+  - ''
+private: false
+updated_at: ''
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+---
+## 概要
+
+Java の Markdown パーサーライブラリ [flexmark-java](https://github.com/vsch/flexmark-java) を利用してMarkdown を HTML に変換する際、WikiLink を有効にし、リンク URL の解決をカスタマイズする 例です。
+
+発端は、自作の [GitBucket Markdown Enhanced Plugin](https://github.com/yasumichi/gitbucket-markdown-enhanced)が、[GitBucket](https://gitbucket.github.io/)の Wiki・Issues・コメントでも使えるようにするため GitBucket を修正している中、自作プラグインが WikiLink を期待通りにレンダリングしないことに気づいたためです。
+
+Scala で開発している関係上、Java ではなく Scala での例です。Java で同様のことをしたい場合は、参考リンクを参照してください。
+
+## 前回の記事
+
+https://qiita.com/yasumichi/items/169faf1419be41b82ae2
+
+## 関連記事
+
+https://zenn.dev/yasumichi/articles/c0c7fe7452d3fb
+
+## WikiLinkExtension の有効化
+
+`Parser.EXTENSIONS` に渡す拡張機能のシーケンスに `WikiLinkExtension.create() ` を加えます。
+
+```scala
+    val extension: Seq[Extension] = Seq(
+      ...
+      WikiLinkExtension.create(),
+      ...
+    )
+
+    options.set(Parser.EXTENSIONS, extension.asJava)
+```
+
+:::note info
+`asJava` による変換は、Scala 2.13.0 以降、deprecated らしいので近日修正予定です。
+:::
+
+以上で WikiLink の変換が有効になりますが、生成されるリンクが期待通りに解決できません。
+
+前回作成した `LinkResolver` の派生クラス `MarkdownEnhancedLinkResolver` が適用されず、内部の [WikiLinkLinkResolver](https://github.com/vsch/flexmark-java/blob/master/flexmark-ext-wikilink/src/main/java/com/vladsch/flexmark/ext/wikilink/internal/WikiLinkLinkResolver.java) を使うようです。
+
+## 独自のノードレンダラーを使用する
+
+既存の [MarkdownEnhancedNodeRenderer](https://github.com/yasumichi/gitbucket-markdown-enhanced/blob/4d2f6b5ffbb18d1d39a60657f762e9a2f9afd92c/src/main/scala/io/github/yasumichi/gme/MarkdownEnhancedNodeRenderer.scala) に NodeRenderingHandler とレンダリングメソッドを加えました。
+
+`getNodeRenderingHandlers` メソッドで追加予定の `renderWikiLink` メソッドを登録しました。
+
+```scala
+  override def getNodeRenderingHandlers()
+      : util.Set[NodeRenderingHandler[_ <: Object]] = {
+    // 既存の処理は省略
+    set.add(new NodeRenderingHandler[WikiLink](
+      classOf[WikiLink],
+      this.renderWikiLink
+    ))
+    set
+  }
+```
+
+`renderWikiLink` メソッドを実装しました。
+
+```scala
+  private def renderWikiLink(
+      node: WikiLink,
+      context: NodeRendererContext,
+      html: HtmlWriter
+  ): Unit = {
+    val link = node.getLink()
+    val resolvedLink = context.resolveLink(
+      com.vladsch.flexmark.html.renderer.LinkType.LINK,
+      link,
+      null
+    )
+    html
+      .withAttr()
+      .attr("href", resolvedLink.getUrl())
+      .tag("a")
+    html.text(node.getLink())
+    html.tag("/a")
+  }
+```
+
+以上で前回作成した `LinkResolver` の派生クラス `MarkdownEnhancedLinkResolver` が、使われるようになりました。
+
+## 参考リンク
+
+- [WikiLinkExtension](https://github.com/vsch/flexmark-java/wiki/Extensions#wikilinks)
+- [flexmark-java/flexmark-java-samples/src/com/vladsch/flexmark/java/samples/PegdownCustomLinkResolverOptions.java at master · vsch/flexmark-java](https://github.com/vsch/flexmark-java/blob/master/flexmark-java-samples/src/com/vladsch/flexmark/java/samples/PegdownCustomLinkResolverOptions.java)
