@@ -196,7 +196,7 @@ GitBucket Markdown Enhanced Plugin 側で標準機能に合わせた出力に修
 
 これまで使用してきた [HtmlWriter](https://github.com/vsch/flexmark-java/blob/bcfe84a3ab6d23d04adce3e5a0bae45c6b791d14/flexmark/src/main/java/com/vladsch/flexmark/html/HtmlWriter.java) クラス[^1] の `append` や `text` などのメソッドでは、行頭のインデントが削除されてしまうのです。
 
-[^1]:(正確には基本クラス [HtmlAppendableBase](https://github.com/vsch/flexmark-java/blob/master/flexmark-util-html/src/main/java/com/vladsch/flexmark/util/html/HtmlAppendableBase.java))
+[^1]:正確には基本クラス [HtmlAppendableBase](https://github.com/vsch/flexmark-java/blob/master/flexmark-util-html/src/main/java/com/vladsch/flexmark/util/html/HtmlAppendableBase.java)
 
 ## スクリーンショット
 
