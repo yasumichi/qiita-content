@@ -6,7 +6,7 @@ tags:
   - Markdown
   - GitBucket
 private: false
-updated_at: '2025-12-09T21:56:30+09:00'
+updated_at: '2025-12-21T16:48:06+09:00'
 id: aa52da49d52b89ecfde6
 organization_url_name: null
 slide: false
