@@ -28,7 +28,7 @@ https://qiita.com/yasumichi/items/d4b0cf525470a98e86dc
 
 ## flexmark-java のコードハイライトに対する立場を検索してみた
 
-度々、Issue が投稿されるようだが、代表的な issue を挙げます。
+度々、Issue が投稿されるようですが、代表的な issue を挙げます。
 
 [Is the library support code highlight? · Issue #183 · vsch/flexmark-java](https://github.com/vsch/flexmark-java/issues/183)
 
@@ -41,8 +41,6 @@ GitBucket では、シンタックスハイライトに [highlight.js](https://h
 クライアント負荷やリポジトリビューアーのファイルビューとの整合を考えると prism.js を使うよりも既存機能を使った方が良さそうです。
 
 ## 生成されるコードブロックの違い
-
-GitBucket では、シンタックスハイライトに [highlight.js](https://highlightjs.org/) を使用しており、マークダウンレンダラーを差し替えても highlight.js 
 
 比較に使ったマークダウンは、次のとおりです。
 
@@ -197,6 +195,12 @@ GitBucket Markdown Enhanced Plugin 側で標準機能に合わせた出力に修
 これまで使用してきた [HtmlWriter](https://github.com/vsch/flexmark-java/blob/bcfe84a3ab6d23d04adce3e5a0bae45c6b791d14/flexmark/src/main/java/com/vladsch/flexmark/html/HtmlWriter.java) クラス[^1] の `append` や `text` などのメソッドでは、行頭のインデントが削除されてしまうのです。
 
 [^1]:正確には基本クラス [HtmlAppendableBase](https://github.com/vsch/flexmark-java/blob/master/flexmark-util-html/src/main/java/com/vladsch/flexmark/util/html/HtmlAppendableBase.java)
+
+### 2025/12/11 追記
+
+> ただ、独自で処理しない mermaid は、他のレンダラー([GitLabExtension](https://github.com/vsch/flexmark-java/wiki/Extensions#gitlab-flavoured-markdown))に委譲するようにしています。
+
+math ブロックも [GitLabExtension](https://github.com/vsch/flexmark-java/wiki/Extensions#gitlab-flavoured-markdown) に委譲する必要がありました。最新版で修正しています。
 
 ## スクリーンショット
 
