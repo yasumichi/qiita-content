@@ -118,6 +118,10 @@ https://qiita.com/yasumichi/items/891578c48573de80b412
 </pre>
 </details>
 
+:::note warning
+JSON オブジェクトではなく、JSON 文字列を書くことに注意してください。プロパティ名をダブルクォーテーション等で囲む必要があります。
+:::
+
 ## vega 関連のスクリプトファイルを LICENSE とともに同梱
 
 専用のディレクトリ [src/main/resources/gme/assets/vega](https://github.com/yasumichi/gitbucket-markdown-enhanced/tree/main/src/main/resources/gme/assets/vega)を掘り、以下のスクリプトを LICENSE とともに配置しました。
