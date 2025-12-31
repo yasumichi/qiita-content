@@ -118,7 +118,7 @@ https://qiita.com/yasumichi/items/891578c48573de80b412
 </pre>
 </details>
 
-:::note warning
+:::note warn
 JSON オブジェクトではなく、JSON 文字列を書くことに注意してください。プロパティ名をダブルクォーテーション等で囲む必要があります。
 :::
 
