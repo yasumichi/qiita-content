@@ -7,7 +7,7 @@ tags:
   - vega
   - vega-lite
 private: false
-updated_at: '2025-12-31T19:12:10+09:00'
+updated_at: '2025-12-31T19:21:26+09:00'
 id: fe740aeeeafd1e25a2a7
 organization_url_name: null
 slide: false
