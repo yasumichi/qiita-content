@@ -36,7 +36,7 @@ https://qiita.com/yasumichi/items/d4b0cf525470a98e86dc
 
 flexmark-java としては、シンタックスハイライトを行えないが、[prism.js](https://prismjs.com/) のようなものを使えば実現できるよと。
 
-GitBucket では、シンタックスハイライトに [highlight.js](https://highlightjs.org/) を使用しており、マークダウンレンダラーを差し替えても highlight.js に関連するスクリプトが読み込まれるようになっています。
+GitBucket では、シンタックスハイライトに [google-code-prettify](https://github.com/googlearchive/code-prettify) を使用しており、マークダウンレンダラーを差し替えても関連するスクリプトが読み込まれるようになっています。(以前、 highlight.js を使用していると記述していましたが、事実誤認でした。)
 
 クライアント負荷やリポジトリビューアーのファイルビューとの整合を考えると prism.js を使うよりも既存機能を使った方が良さそうです。
 
