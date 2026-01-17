@@ -5,7 +5,7 @@ tags:
   - Scala
   - GitBucket
 private: false
-updated_at: '2026-01-17T10:42:21+09:00'
+updated_at: '2026-01-17T11:02:00+09:00'
 id: 75bbec3f02e9e4b24bef
 organization_url_name: null
 slide: false
