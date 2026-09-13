@@ -15,6 +15,18 @@ agreed_posting_campaign_term: false
 
 https://github.com/yasumichi/pcap2quiz
 
+## 筆者の開発環境について
+
+| 項目    | 値                                             |
+| ------- | ---------------------------------------------- |
+| CPU     | 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz |
+| メモリ  | 16GB                                           |
+| OS      | Fedora Linux 44 (Workstation Edition)          |
+| Ollama  | 0.34.0                                         |
+| Python  | 3.14.7                                         |
+| pyshark | 0.6                                            |
+| ollama  | 0.6.2                                          |
+
 ## 開発の経緯
 
 職場の教育機関でプログラミングやネットワークなどについて教えています。
