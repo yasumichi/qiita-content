@@ -23,6 +23,7 @@ https://github.com/yasumichi/pcap2quiz
 | メモリ  | 16GB                                           |
 | OS      | Fedora Linux 44 (Workstation Edition)          |
 | Ollama  | 0.34.0                                         |
+| LLM     | gemma4:e2b                                     |
 | Python  | 3.14.7                                         |
 | pyshark | 0.6                                            |
 | ollama  | 0.6.2                                          |
