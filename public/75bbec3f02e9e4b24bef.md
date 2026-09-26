@@ -10,6 +10,8 @@ id: 75bbec3f02e9e4b24bef
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 ## 概要
 

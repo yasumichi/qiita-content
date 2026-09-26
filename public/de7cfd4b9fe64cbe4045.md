@@ -10,6 +10,8 @@ id: de7cfd4b9fe64cbe4045
 organization_url_name: null
 slide: false
 ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 :sweat_smile: 今更、OpenJDK 8 ですかというツッコミはなしで…
 
